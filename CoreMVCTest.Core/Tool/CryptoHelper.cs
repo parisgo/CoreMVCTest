@@ -1,7 +1,7 @@
 ﻿using System.Security.Cryptography;
 using System.Text;
 
-namespace CoreMVCTest.Core
+namespace CoreMVCTest.Core.Tool
 {
     public class CryptoHelper
     {

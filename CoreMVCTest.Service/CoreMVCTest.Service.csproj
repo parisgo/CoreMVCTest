@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CoreMVCTest.Core\CoreMVCTest.Core.csproj" />
+    <ProjectReference Include="..\CoreMVCTest.Db\CoreMVCTest.Db.csproj" />
+  </ItemGroup>
+
+</Project>

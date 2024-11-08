@@ -1,7 +1,8 @@
-﻿using Microsoft.Extensions.Caching.Distributed;
+﻿using CoreMVCTest.Core.Tool;
+using Microsoft.Extensions.Caching.Distributed;
 using System.Text;
 
-namespace CoreMVCTest.Core
+namespace CoreMVCTest.Core.Cache
 {
     public static class IDistributedCacheExtension
     {
@@ -70,8 +71,8 @@ namespace CoreMVCTest.Core
             {
                 distributedCache.SetString(key, value, new DistributedCacheEntryOptions
                 {
-                    AbsoluteExpirationRelativeToNow = (isSlidingExp ? null : expirationRelativeToNow),
-                    SlidingExpiration = (isSlidingExp ? expirationRelativeToNow : null)
+                    AbsoluteExpirationRelativeToNow = isSlidingExp ? null : expirationRelativeToNow,
+                    SlidingExpiration = isSlidingExp ? expirationRelativeToNow : null
                 });
                 return true;
             }
@@ -181,8 +182,8 @@ namespace CoreMVCTest.Core
                 var valueStr = JsonHelper.ObjectToJson(value);
                 distributedCache.SetString(key, valueStr, new DistributedCacheEntryOptions
                 {
-                    AbsoluteExpirationRelativeToNow = (isSlidingExp ? null : expirationRelativeToNow),
-                    SlidingExpiration = (isSlidingExp ? expirationRelativeToNow : null)
+                    AbsoluteExpirationRelativeToNow = isSlidingExp ? null : expirationRelativeToNow,
+                    SlidingExpiration = isSlidingExp ? expirationRelativeToNow : null
                 });
                 return true;
             }

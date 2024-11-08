@@ -3,7 +3,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using CoreMVCTest.Core.Converter;
 
-namespace CoreMVCTest.Core
+namespace CoreMVCTest.Core.Tool
 {
     public class JsonHelper
     {

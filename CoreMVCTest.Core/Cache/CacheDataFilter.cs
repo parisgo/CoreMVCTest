@@ -1,11 +1,12 @@
 ﻿using System.Text.Json;
+using CoreMVCTest.Core.Tool;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
-namespace CoreMVCTest.Core
+namespace CoreMVCTest.Core.Cache
 {
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
     public class CacheDataFilter : Attribute, IActionFilter
