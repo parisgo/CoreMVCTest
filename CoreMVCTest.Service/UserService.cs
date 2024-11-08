@@ -1,4 +1,6 @@
-﻿using CoreMVCTest.Core.Attributes;
+﻿using Autofac.Extras.DynamicProxy;
+using CoreMVCTest.Core.Aop.Log;
+using CoreMVCTest.Core.Attributes;
 using CoreMVCTest.Db.Model;
 using CoreMVCTest.Db.Repo;
 using Microsoft.Extensions.Logging;

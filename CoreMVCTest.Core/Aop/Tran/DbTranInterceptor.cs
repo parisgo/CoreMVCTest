@@ -1,5 +1,4 @@
-﻿using Castle.Core.Logging;
-using Castle.DynamicProxy;
+﻿using Castle.DynamicProxy;
 using CoreMVCTest.Core.Attributes;
 using Microsoft.Extensions.Logging;
 using System.Reflection;
@@ -31,7 +30,6 @@ namespace CoreMVCTest.Core.Aop.Tran
                 {
                     //_unitOfWorkManage.BeginTran(); //开启事务
                     _logger.LogInformation("开启事务****************");
-                    Console.WriteLine("开启事务****************");
 
                     invocation.Proceed();
 

@@ -1,8 +1,5 @@
 ﻿using Autofac;
 using Autofac.Extensions.DependencyInjection;
-using Autofac.Extras.DynamicProxy;
-using System.Reflection;
-using CoreMVCTest.Core.Aop.Tran;
 using CoreMVCTest.Core.Aop;
 using CoreMVCTest.Api.Test;
 using CoreMVCTest.Service;
@@ -26,23 +23,6 @@ builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
 builder.Host.ConfigureContainer<ContainerBuilder>(builder =>  {
     builder.RegisterType<MyService>().SingleInstance();
     builder.RegisterType<UserService>().As<IUserService>();
-
-    //注册拦截器到Autofac容器
-    builder.RegisterType<DbTranInterceptor>();
-
-    //AutoFac批量注册所有Service类,并启用拦截器
-    builder.RegisterAssemblyTypes(Assembly.Load("CoreMVCTest.Service"))
-        //.Where(t => t.Name.EndsWith("Service"))
-        .AsImplementedInterfaces()
-        .PropertiesAutowired()
-        .EnableInterfaceInterceptors()            //这里动态创建一个接口代理，另外还有一个
-        .InterceptedBy(typeof(DbTranInterceptor)); //动态注入拦截器DbTranInterceptor
-
-    //AutoFac批量注册所有Repository仓储类    
-    //builder.RegisterAssemblyTypes(Assembly.Load("CoreMVCTest.Service"))
-    //    .AsImplementedInterfaces()
-    //    .PropertiesAutowired()
-    //    .InstancePerLifetimeScope();  //域模式
 
     builder.AddAopService("CoreMVCTest.Service");    
 });

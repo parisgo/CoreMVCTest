@@ -107,13 +107,13 @@ namespace CoreMVCTest.Core.Aop.Log
 
         private void LogExecuteInfo(IInvocation invocation, object result)
         {
-            _logger.LogInformation("方法{0}，返回值{1}", GetMethodInfo(invocation), result);
+            _logger.LogInformation("方法{0}，返回值{1} **********", GetMethodInfo(invocation), result);
             _logger.LogDebug("方法{0}，返回值{1}", GetMethodInfo(invocation), result);
         }
 
         private void LogExecuteError(Exception ex, IInvocation invocation)
         {
-            _logger.LogInformation("方法{0}", GetMethodInfo(invocation));
+            _logger.LogInformation("方法{0} **********", GetMethodInfo(invocation));
             _logger.LogError(ex, "执行{0}时发生错误！", GetMethodInfo(invocation));
         }
 
