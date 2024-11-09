@@ -12,6 +12,7 @@
     <ItemGroup>
         <PackageReference Include="Autofac.Extras.DynamicProxy" Version="7.1.0" />
         <PackageReference Include="Castle.Core.AsyncInterceptor" Version="2.1.0" />
+        <PackageReference Include="LazyCache" Version="2.4.0" />
 		
         <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="8.0.10" />
         <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.1" />

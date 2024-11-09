@@ -6,9 +6,9 @@ namespace CoreMVCTest.Core.Converter
 {
     public class StringConverter : JsonConverter<string?>
     {
-        public override string? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+        public override string Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
-            string? value = reader.GetString();
+            string value = reader.GetString();
 
             if (string.IsNullOrWhiteSpace(value))
             {
@@ -21,7 +21,7 @@ namespace CoreMVCTest.Core.Converter
         }
 
 
-        public override void Write(Utf8JsonWriter writer, string? value, JsonSerializerOptions options)
+        public override void Write(Utf8JsonWriter writer, string value, JsonSerializerOptions options)
         {
             if (string.IsNullOrWhiteSpace(value))
             {

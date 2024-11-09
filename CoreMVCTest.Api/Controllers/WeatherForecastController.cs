@@ -28,7 +28,8 @@ namespace CoreMVCTest.Api.Controllers
         {
             _logger.LogInformation("web api get *************************");
 
-            _userService.GetList();
+            //_userService.GetList();
+            _userService.GetById(1);
 
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {

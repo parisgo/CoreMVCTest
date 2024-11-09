@@ -56,7 +56,7 @@ namespace CoreMVCTest.Core.Tool
         /// 通过 Key 获取 Value
         /// </summary>
         /// <returns></returns>
-        public static string? GetValueByKey(string json, string key)
+        public static string GetValueByKey(string json, string key)
         {
             try
             {

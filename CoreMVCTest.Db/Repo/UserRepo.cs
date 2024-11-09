@@ -1,5 +1,4 @@
 ﻿using CoreMVCTest.Db.Model;
-using System;
 
 namespace CoreMVCTest.Db.Repo
 {
@@ -12,6 +11,11 @@ namespace CoreMVCTest.Db.Repo
             users.Add(new User() { Id = 1, Name = "User 2" });
 
             return users;
+        }
+
+        public User GetById(int id)
+        {
+            return new User() { Id = 1, Name = "User 1" };
         }
     }
 }

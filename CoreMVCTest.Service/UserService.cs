@@ -17,12 +17,20 @@ namespace CoreMVCTest.Service
         }
 
         [UseTran]
+        [Cached]
         public IList<User> GetList()
         {
             _logger.LogInformation("Get List *************************************");
 
             UserRepo reo = new UserRepo();
             return reo.GetList();
+        }
+
+        [Cached]
+        public User GetById(int id)
+        {
+            UserRepo reo = new UserRepo();
+            return reo.GetById(1);
         }
     }
 }

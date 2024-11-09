@@ -12,6 +12,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+//LazyCache
+builder.Services.AddLazyCache();
+
 //NServiceBus
 var endpointConfiguration = new EndpointConfiguration("MyEndpoint");
 endpointConfiguration.UseSerialization<SystemJsonSerializer>();

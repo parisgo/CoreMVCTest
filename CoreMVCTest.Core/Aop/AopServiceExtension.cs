@@ -1,5 +1,6 @@
 ﻿using Autofac;
 using Autofac.Extras.DynamicProxy;
+using CoreMVCTest.Core.Aop.Cache;
 using CoreMVCTest.Core.Aop.Log;
 using CoreMVCTest.Core.Aop.Tran;
 using System.Reflection;
@@ -22,12 +23,17 @@ namespace CoreMVCTest.Core.Aop
 
             builder.RegisterType<DbTranInterceptor>().AsSelf();
 
+            builder.RegisterType<CachingKeyBuilder>().As<ICachingKeyBuilder>();
+            builder.RegisterType<CacheInterceptor>().AsSelf();
+            builder.RegisterType<CacheInterceptorAsync>().AsSelf();
+
             //注册业务层，同时对业务层的方法进行拦截
             builder.RegisterAssemblyTypes(Assembly.Load(serviceAssemblyName))
                 .AsImplementedInterfaces().InstancePerLifetimeScope()
                 .EnableInterfaceInterceptors()
                 .InterceptedBy(new Type[] { typeof(LogInterceptor) })//这里只有同步的，因为异步方法拦截器还是先走同步拦截器 
                 .InterceptedBy(new Type[] { typeof(DbTranInterceptor) })
+                .InterceptedBy(new Type[] { typeof(CacheInterceptor) })
                 ;
 
             //业务层注册拦截器也可以使用[Intercept(typeof(LogInterceptor))]加在类上，但是上面的方法比较好，没有侵入性
